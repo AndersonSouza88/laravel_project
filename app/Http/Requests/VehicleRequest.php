@@ -29,7 +29,7 @@ class VehicleRequest extends FormRequest
             'modelo' => 'required',
             'versao' => 'required',
             'placa' => 'required|max:7',//para limitar caracteres de string se usa "max:valor maximo"
-            'anomodelo' => 'required|numeric|digits_between:1,4',
+            'anomodelo' => 'required|numeric|digits:4',
             'preco' => 'required|numeric|digits_between:1,10',// para integer,numeric se usa "digits_between:valor minimo,valor maximo"
             'km' => 'required|numeric',
             'cambio' => 'required',
@@ -51,7 +51,7 @@ class VehicleRequest extends FormRequest
             'placa.max'  => 'Limite de placa ultrapassado!!',
             'anomodelo.required' => 'O campo Ano do modelo não foi preenchido!!',
             'preco.numeric' => 'O campo aceita apenas numeros!!',
-            'anomodelo.digits_between' => 'Limite de ano ultrapassado!!',
+            'anomodelo.digits' => 'Limite de ano ultrapassado!!',
             'preco.required' => 'O campo preco não foi preenchido!!',
             'preco.numeric' => 'O campo aceita apenas numeros!!',
             'preco.digits_between' => 'Limite de preço ultrapassado!!',

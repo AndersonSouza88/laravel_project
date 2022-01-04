@@ -11,7 +11,7 @@
                 <input type="text" name="nome" value="{{ $vehicles->modelo }}"><br />
             </div>
             <div class="form-group">
-                <input type="submit" name="save" value="Excluir Veiculo">
+                <input class="btn btn-danger" type="submit" name="save" value="Excluir Veiculo">
                 <a class="btn btn-primary"
                 href="{{ route('ver_vehicles') }}" type="button"
                 title="cancelar">Cancelar</a>

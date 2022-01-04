@@ -15,10 +15,14 @@
                             <div class="col">
                                 <label for="">Categoria</label><br />
                                 <select class="form-control @if ($errors->has('categoria')) is-invalid @endif " name="categoria">
-                                    <option value="">Selecionar...</option>
+                                    <option selected value="{{ old('categoria') }}">Selecionar...</option>
                                     @foreach ($categoria as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}
-                                        </option>
+                                        @if (old('categoria') == $category->id)
+                                            <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                                        @else
+                                            <option value="{{ $category->id }}">{{ $category->name }}
+                                            </option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @if ($errors->has('categoria'))
@@ -31,7 +35,8 @@
                             </div>
                             <div class="col">
                                 <label for="">Marca</label><br />
-                                <input type="text" class="form-control @if ($errors->has('marca')) is-invalid @endif " name="marca">
+                                <input type="text" class="form-control @if ($errors->has('marca')) is-invalid @endif " name="marca"
+                                    value="{{ old('marca') }}">
                                 @if ($errors->has('marca'))
                                     @foreach ($errors->get('marca') as $error)
                                         <div class="invalid-feedback">
@@ -42,8 +47,8 @@
                             </div>
                             <div class="col">
                                 <label for="">Modelo</label><br />
-                                <input type="text" class="form-control @if ($errors->has('modelo')) is-invalid @endif " name="modelo">
-
+                                <input type="text" class="form-control @if ($errors->has('modelo')) is-invalid @endif " name="modelo"
+                                    value="{{ old('modelo') }}">
                                 @if ($errors->has('modelo'))
                                     @foreach ($errors->get('modelo') as $error)
                                         <div class="invalid-feedback">
@@ -54,7 +59,8 @@
                             </div>
                             <div class="col">
                                 <label for="">Versão</label><br />
-                                <input type="text" class="form-control @if ($errors->has('versao')) is-invalid @endif " name="versao">
+                                <input type="text" class="form-control @if ($errors->has('versao')) is-invalid @endif " name="versao"
+                                    value="{{ old('versao') }}">
                                 @if ($errors->has('versao'))
                                     @foreach ($errors->get('versao') as $error)
                                         <div class="invalid-feedback">
@@ -65,7 +71,8 @@
                             </div>
                             <div class="col">
                                 <label for="">Placa</label><br />
-                                <input type="text" class="form-control @if ($errors->has('placa')) is-invalid @endif " name="placa">
+                                <input type="text" class="form-control @if ($errors->has('placa')) is-invalid @endif " name="placa"
+                                    value="{{ old('placa') }}">
                                 @if ($errors->has('placa'))
                                     @foreach ($errors->get('placa') as $error)
                                         <div class="invalid-feedback">
@@ -76,7 +83,8 @@
                             </div>
                             <div class="col">
                                 <label for="">Ano do Modelo</label><br />
-                                <input type="text" class="form-control @if ($errors->has('anomodelo')) is-invalid @endif " name="anomodelo">
+                                <input type="text" class="form-control @if ($errors->has('anomodelo')) is-invalid @endif " name="anomodelo"
+                                    value="{{ old('anomodelo') }}">
                                 @if ($errors->has('anomodelo'))
                                     @foreach ($errors->get('anomodelo') as $error)
                                         <div class="invalid-feedback">
@@ -90,7 +98,8 @@
                             <div class="form-row">
                                 <div class="col">
                                     <label for="">Preço</label><br />
-                                    <input type="text" class="form-control @if ($errors->has('preco')) is-invalid @endif " name="preco">
+                                    <input type="text" class="form-control @if ($errors->has('preco')) is-invalid @endif " name="preco"
+                                        value="{{ old('preco') }}">
                                     @if ($errors->has('preco'))
                                         @foreach ($errors->get('preco') as $error)
                                             <div class="invalid-feedback">
@@ -101,7 +110,8 @@
                                 </div>
                                 <div class="col">
                                     <label for="">Km</label><br />
-                                    <input type="text" class="form-control @if ($errors->has('km')) is-invalid @endif " name="km">
+                                    <input type="text" class="form-control @if ($errors->has('km')) is-invalid @endif " name="km"
+                                        value="{{ old('km') }}">
                                     @if ($errors->has('km'))
                                         @foreach ($errors->get('km') as $error)
                                             <div class="invalid-feedback">
@@ -116,10 +126,13 @@
                                 <select class="form-control @if ($errors->has('cambio')) is-invalid @endif " name="cambio">
                                     <option value="">Selecionar...</option>
                                     @foreach ($cambios as $cambio)
-                                        <option value="{{ $cambio->id }}">{{ $cambio->name }}
-                                        </option>
+                                        @if (old('cambio') == $cambio->id)
+                                            <option value="{{ $cambio->id }}" selected>{{ $cambio->name }}</option>
+                                        @else
+                                            <option value="{{ $cambio->id }}">{{ $cambio->name }}
+                                            </option>
+                                        @endif
                                     @endforeach
-
                                 </select>
                                 @if ($errors->has('cambio'))
                                     @foreach ($errors->get('cambio') as $error)
@@ -135,8 +148,12 @@
 
                                     <option value="">Selecionar...</option>
                                     @foreach ($direcoes as $direcao)
-                                        <option value="{{ $direcao->id }}">{{ $direcao->name }}
-                                        </option>
+                                        @if (old('direcao') == $direcao->id)
+                                            <option value="{{ $direcao->id }}" selected>{{ $direcao->name }}</option>
+                                        @else
+                                            <option value="{{ $direcao->id }}">{{ $direcao->name }}
+                                            </option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @if ($errors->has('direcao'))
@@ -159,10 +176,13 @@
                                     @endif
                                     <option value="">Selecionar...</option>
                                     @foreach ($cores as $cor)
-                                        <option value="{{ $cor->id }}">{{ $cor->name }}
-                                        </option>
+                                        @if (old('cores') == $cor->id)
+                                            <option value="{{ $cor->id }}" selected>{{ $cor->name }}</option>
+                                        @else
+                                            <option value="{{ $cor->id }}">{{ $cor->name }}
+                                            </option>
+                                        @endif
                                     @endforeach
-
                                 </select>
                                 @if ($errors->has('cores'))
                                     @foreach ($errors->get('cores') as $error)
@@ -184,10 +204,14 @@
                                     @endif
                                     <option value="">Selecionar...</option>
                                     @foreach ($combustiveis as $combustivel)
-                                        <option value="{{ $combustivel->id }}">{{ $combustivel->name }}
-                                        </option>
+                                        @if (old('combustivel') == $combustivel->id)
+                                            <option value="{{ $combustivel->id }}" selected>{{ $combustivel->name }}
+                                            </option>
+                                        @else
+                                            <option value="{{ $combustivel->id }}">{{ $combustivel->name }}
+                                            </option>
+                                        @endif
                                     @endforeach
-
                                 </select>
                                 @if ($errors->has('combustivel'))
                                     @foreach ($errors->get('combustivel') as $error)
@@ -197,17 +221,18 @@
                                     @endforeach
                                 @endif
                             </div>
-
-
-
                             <div class="col">
                                 <label for="">Opcionais</label><br />
                                 <select class="form-control @if ($errors->has('opcionais')) is-invalid @endif " name="opcionais">
-
                                     <option value="">Selecionar...</option>
                                     @foreach ($opcionais as $opcional)
-                                        <option value="{{ $opcional->id }}">{{ $opcional->name }}
-                                        </option>
+                                        @if (old('opcionais') == $opcional->id)
+                                            <option value="{{ $opcional->id }}" selected>{{ $opcional->name }}
+                                            </option>
+                                        @else
+                                            <option value="{{ $opcional->id }}">{{ $opcional->name }}
+                                            </option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @if ($errors->has('opcionais'))
