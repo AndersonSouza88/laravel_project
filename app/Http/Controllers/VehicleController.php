@@ -69,7 +69,7 @@ class VehicleController extends Controller
     }
 
     public function show()
-    {
+    { 
         $vehicles = Vehicle::all();
         return view('vehicles.show', ['vehicles' => $vehicles]);
     }

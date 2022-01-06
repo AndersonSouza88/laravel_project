@@ -43,7 +43,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($vehicles as $vehicle)
+                    @forelse ($vehicles as $vehicle)
                         <tr>
                             <td> <strong>{{ $vehicle->codigo }}</strong> </td>
                             <td>{{ $vehicle->id }}</td>
@@ -86,8 +86,11 @@
 
                                 </ul>
                             </td>
+
+                        @empty
+                            <p> <strong>Nenhum Veiculo cadastrado</strong> </p>
                         </tr>
-                    @endforeach
+                    @endforelse
                 </tbody>
             </table>
         </div>
